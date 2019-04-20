@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Teleop node launching -->
+<launch>
+  <node name="teleop" pkg="map-my-world" type="teleop" output="screen">
+  	<remap from="~cmd_vel" to="/cmd_vel"/>
+  </node>
+</launch>

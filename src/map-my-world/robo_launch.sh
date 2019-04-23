@@ -1,5 +1,5 @@
 #! /bin/sh
-xterm -e " roslaunch map-my-world world.launch world_file:=/home/workspace/catkin_ws/src/map-my-world/worlds/kitchen_dining.world" &
+xterm -e " roslaunch map-my-world kitchen_world.launch " &
 sleep 5
 
 xterm -e " roslaunch map-my-world teleop.launch  " &

@@ -140,16 +140,10 @@
       </geometry>
     </visual>
    </link>
-
-  <!-- Kinect camera joint-->
-  <joint type="fixed" name="camera_joint">
-  	<origin xyz="0.1 0 0" rpy="0 0 0"/>
-  	<child link="camera"/>
-  	<parent link="chassis"/>
-  </joint>
   
-  <!-- Kinect camera link -->
-  <link name='camera'>
+  <!-- Kinect RGB camera link -->
+  <link name="RGBD_camera">
+
     <inertial>
       <mass value="0.1"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -160,35 +154,43 @@
       />
     </inertial>
 
-    <collision name='camera'>
-      <origin xyz="0 0 0" rpy=" 0 0 0"/> 
+    <collision name="RGB_camera_collision">
+      <origin xyz="-0.03 0 -0.015" rpy=" 0 0 0"/> 
       <geometry>
-        <box size="0.05 0.05 0.05"/>
+        <box size="0.075 0.25 0.075"/>
       </geometry>
     </collision>
 
-    <visual name='camera'>
+    <visual name="RGB_camera_visual">
       <origin xyz="0 0 0" rpy=" 0 0 0"/> 
       <geometry>
         <mesh filename="package://map-my-world/meshes/kinect.dae"/>
       </geometry>
     </visual>
   </link>
-  
-  <!--Kinect camera optical joint-->
-  <joint name="camera_optical_joint" type="fixed">
-  	<origin xyz="0 0 0 " rpy="${-pi/2} 0 ${-pi/2}"/>
-    <parent link="camera"/>
-    <child link="camera_optical_link"/>
+
+  <!--Kinect Depth camera link-->
+  <link name="Depth_camera"></link>
+
+  <!-- Kinect RGB camera joint-->
+  <joint name="RGB_camera_joint" type="fixed">
+  	<origin xyz="0.2 0 0.1" rpy="0 0 0"/>
+  	<child link="RGBD_camera"/>
+  	<parent link="chassis"/>
+	<axis xyz="1 0 0" rpy="0 0 0"/>
   </joint>
-  
-  <!--Kinect camera optical link-->
-  <link name="camera_optical_link">
-  </link>
-  
+
+  <!--Kinect Depth camera joint-->
+  <joint name="Depth_camera_joint" type="fixed">
+  	<origin xyz="0.2 0 0.1" rpy="${-pi/2} 0 ${-pi/2}"/>
+    	<child link="Depth_camera"/>
+	<parent link="RGBD_camera"/>
+	<axis xyz="1 0 0" rpy="0 0 0"/>
+  </joint> 
+
   <!-- Lazer/Hokuyo joint -->
   <joint type="fixed" name="hokuyo_joint">
-    <origin xyz="0.15 0 0.1" rpy="0 0 0"/>
+    <origin xyz="0 0 0.15" rpy="0 0 0"/>
     <child link="hokuyo"/>
     <parent link="chassis"/>
   </joint>
@@ -219,6 +221,20 @@
         <mesh filename="package://map-my-world/meshes/hokuyo.dae"/>
       </geometry>
     </visual>
+
+    <visual name='hokuyo_base_visual'>
+      <origin xyz="0 0 -0.0925" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.115"/>
+      </geometry>
+    </visual>
+
+    <collision name='hokuyo_base_collision'>
+      <origin xyz="0 0 -0.0925" rpy=" 0 0 0"/>
+      <geometry>
+        <box size="0.05 0.05 0.115"/>
+      </geometry>
+    </collision>
   </link>
 
 

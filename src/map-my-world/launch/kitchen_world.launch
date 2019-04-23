@@ -3,6 +3,7 @@
 <launch>
 
   <include file="$(find map-my-world)/launch/robot_description.launch"/>
+
   <arg name="world" default="empty"/> 
   <arg name="paused" default="false"/>
   <arg name="use_sim_time" default="true"/>
@@ -12,7 +13,6 @@
 
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find map-my-world)/worlds/kitchen_dining.world"/>
-    <!--arg name="world_name" value="$(find map-my-world)/worlds/jackal_race.world"/-->
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="gui" value="$(arg gui)"/>
@@ -24,8 +24,5 @@
 
   <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" 
   output="screen" args="-urdf -param robot_description -model udacity_bot"/>
-
-  <!--launch rviz-->
-  <!--node name="rviz" pkg="rviz" type="rviz" respawn="false"/-->
 
 </launch>

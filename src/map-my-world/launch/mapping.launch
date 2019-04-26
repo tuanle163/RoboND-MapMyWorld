@@ -32,11 +32,11 @@
       <param name="queue_size" type="int" value="40"/>
 
       <!-- Rate (Hz) at which new nodes are added to map -->
-      <param name="Rtabmap/DetectionRate" type="string" value="3"/> 
+      <param name="Rtabmap/DetectionRate" type="string" value="5"/> 
 
       <!-- 2D SLAM -->
       <param name="Reg/Force3DoF" type="string" value="true"/>      
-      <param name="Optimizer/Slam2D" 		value="true"/> <!-- Optimize the 2D Slam -->
+
 
       <!-- Loop Closure Detection -->
       <!-- SURF = Speeded Up Robust Features -->
@@ -44,20 +44,20 @@
       <param name="Kp/DetectorStrategy" type="string" value="0"/> 
 
 	  <!-- Maximum visual words per image (bag-of-words) -->
-      <param name="Kp/MaxFeatures" type="string" value="200"/>  
+      <param name="Kp/MaxFeatures" type="string" value="300"/>  
 
       <!-- Used to extract more or less SURF features -->
-      <param name="SURF/HessianThreshold" type="string" value="100"/>
+      <param name="SURF/HessianThreshold" type="string" value="200"/>
 
 	  <!-- Loop Closure Constraint -->
 	  <!-- 0=Visual, 1=ICP (1 requires scan)-->
       <param name="Reg/Strategy" type="string" value="0"/> 
 
       <!-- Reduce node when loop closure happens -->
-      <!--param name="Mem/ReduceGraph" type="bool" value="true"/-->
+      <param name="Mem/ReduceGraph" type="bool" value="true"/>
 
 	  <!-- Minimum visual inliers to accept loop closure -->
-      <param name="Vis/MinInliers" type="string" value="9"/> 
+      <param name="Vis/MinInliers" type="string" value="10"/> 
 
       <!-- Set to false to avoid saving data when robot is not moving -->
       <param name="Mem/NotLinkedNodesKept" type="string" value="false"/>
@@ -65,7 +65,7 @@
     </node> 
 
     <!-- visualization with rtabmapviz -->
-    <!--
+    
     <node pkg="rtabmap_ros" type="rtabmapviz" name="rtabmapviz" args="-d $(find rtabmap_ros)/launch/config/rgbd_gui.ini" output="screen">
 
       <param name="subscribe_depth" type="bool"   value="true"/>
@@ -78,6 +78,6 @@
       <remap from="scan"            to="/scan"/>
 
     </node>
-    -->	
+    	
   </group>
 </launch>

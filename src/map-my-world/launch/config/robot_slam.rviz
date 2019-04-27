@@ -322,7 +322,7 @@ Visualization Manager:
       Color Transformer: RGB8
       Download graph: false
       Download map: false
-      Enabled: true
+      Enabled: false
       Filter ceiling (m): 0
       Filter floor (m): 0
       Invert Rainbow: false
@@ -341,7 +341,7 @@ Visualization Manager:
       Unreliable: false
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Angle Tolerance: 0.100000001
       Class: rviz/Odometry
       Covariance:
@@ -396,7 +396,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: true
-      Enabled: false
+      Enabled: true
       Head Length: 0.300000012
       Head Radius: 0.100000001
       Name: PoseWithCovariance
@@ -405,7 +405,7 @@ Visualization Manager:
       Shape: Arrow
       Topic: /rtabmap/localization_pose
       Unreliable: false
-      Value: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -442,10 +442,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.00999999978
-      Pitch: 1.11479998
+      Pitch: 1.03980005
       Target Frame: base_footprint
       Value: Orbit (rviz)
-      Yaw: 3.13911343
+      Yaw: 3.13911295
     Saved: ~
 Window Geometry:
   Displays:
